@@ -1,4 +1,6 @@
 const Post = require('../models/postModel');
+const Comment = require('../models/commentModel');
+
 
 const post = async (req, res) => {
     console.log(req.body)
@@ -14,4 +16,6 @@ const post = async (req, res) => {
     }
 };
 
+
+Post.hasMany(Comment, { foreignKey: 'postId' });
 module.exports = post;
