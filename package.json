@@ -1,7 +1,6 @@
 {
   "name": "backend_v2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +21,14 @@
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sauravamadis/backend_v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sauravamadis/backend_v2/issues"
+  },
+  "homepage": "https://github.com/sauravamadis/backend_v2#readme",
+  "description": ""
 }
