@@ -1,5 +1,0 @@
-PORT = 5000
-
-JWT_SECRET_KEY = jwt_secret_key
-
-TOKEN_KEY = token_key
