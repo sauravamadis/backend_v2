@@ -1,16 +1,17 @@
 const Sequelizer = require("sequelize");
 const db = require("../config/database");
 
-const User = db.define("user", {
+const Comment = db.define("comment", {
   id: {
     type: Sequelizer.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  username: { type: Sequelizer.STRING },
-  password: { type: Sequelizer.STRING },
+  postId: { type: Sequelizer.INTEGER },
+  name: { type: Sequelizer.STRING },
   email: { type: Sequelizer.STRING },
-  phone: { type: Sequelizer.STRING },
+  body: { type: Sequelizer.STRING },
+  
 });
 
-module.exports = User;
+module.exports = Comment;
