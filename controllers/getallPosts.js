@@ -29,7 +29,19 @@ const getallPosts = async (req, res) => {
       const postList = await Post.findAll({
         raw: true
       });
-      console.log(postList)
+      const commentList = await Comment.findAll({
+        raw: true
+      });
+
+      postList.forEach(function (post, index) {
+        post['commentCount'] = 0
+        commentList.forEach(function (comment, index) {
+          if(post.id == comment.postId){
+            post.commentCount += 1
+          }
+        });
+      });   
+      console.log(commentList)
       res.send(postList)
     }else{
           // Access Denied
