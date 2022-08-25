@@ -34,7 +34,7 @@ try {
 
 console.log("All models were synchronized successfully.");
 
-app.use('/', require('./routes/index_routes'));
+app.use('/', require('./routes/index.routes'));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
