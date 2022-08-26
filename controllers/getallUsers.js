@@ -10,7 +10,7 @@ let jwtSecretKey = process.env.JWT_SECRET_KEY;
 const getUsers = async (req, res) => {
   try {
     const token = req.header(token_key);
-    const verified = jwt.verify(token, jwtSecretKey);
+    const verified = parseInt(jwt.verify(token, jwtSecretKey));
 
     const userList = await User.findAll({
       raw: true
@@ -20,8 +20,8 @@ const getUsers = async (req, res) => {
     userList.forEach(function (item, index) {
       userIdList.push(item.id)
     });
-
-    if(userIdList.indexOf(verified.id) !== -1){
+    
+    if(userIdList.includes(verified)){
       res.send(userList);
     }else{
           // Access Denied

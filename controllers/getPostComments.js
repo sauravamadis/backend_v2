@@ -1,4 +1,4 @@
-const Post = require("../models/postModel");
+// const Post = require("../models/postModel");
 const Comment = require("../models/commentModel");
 const User = require("../models/userModel");
 
@@ -10,7 +10,7 @@ dotenv.config();
 let token_key = process.env.TOKEN_KEY;
 let jwtSecretKey = process.env.JWT_SECRET_KEY;
 
-const getallPosts = async (req, res) => {
+const getallPostComments = async (req, res) => {
   try {
     const token = req.header(token_key);
     const verified = jwt.verify(token, jwtSecretKey);
@@ -49,4 +49,4 @@ const getallPosts = async (req, res) => {
   }
 };
 
-module.exports = getallPosts;
+module.exports = getallPostComments;

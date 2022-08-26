@@ -9,8 +9,8 @@ let jwtSecretKey = process.env.JWT_SECRET_KEY;
 const updateUser = async (req, res) => {
   try {
     const token = req.header(token_key);
-    const verified = jwt.verify(token, jwtSecretKey);
-
+    const verified = parseInt(jwt.verify(token, jwtSecretKey));
+    console.log(verified)
     const userList = await User.findAll({
       raw: true,
     });
@@ -20,13 +20,13 @@ const updateUser = async (req, res) => {
       userIdList.push(item.id);
     });
 
-    if (userIdList.indexOf(verified.id) !== -1) {
+    if (userIdList.indexOf(verified) !== -1) {
       const userList = await User.findAll({
         raw: true,
       });
       var found = {};
       userList.forEach(function (item, index) {
-        if ((verified.id = item.id)) {
+        if ((verified == item.id)) {
           found = item;
         }
       });

@@ -5,6 +5,11 @@ const user = require('./models/userModel.js');
 const post = require('./models/postModel.js');
 const comment = require('./models/commentModel.js');
 
+post.hasMany(comment, { foreignKey: 'postId' });
+comment.belongsTo(post, { foreignKey: 'postId' });
+
+app.use(express.json());
+app.use(express.urlencoded());
 var bodyParser = require('body-parser');
 const sequelize = require('sequelize');
 const db = require('./config/database');
